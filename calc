@@ -1,0 +1,34 @@
+using System;
+
+namespace calculator_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Welcome to the mechanics calculator");
+            Console.WriteLine(
+                "What type of question are you looking to answer: we can help you with moments, forces and friction, projectiles, application of forces and kinematics");
+            Console.WriteLine("Please choose an option");
+
+            var option = Console.ReadLine();
+
+            if (option == "moments")
+            {
+
+                Console.WriteLine("Where is the distance of the moment");
+                double mass = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("What is the weight of the ladder");
+                double weight = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("What is the angle");
+
+                double radian = Convert.ToDouble(Console.ReadLine());
+                double radians = (Math.PI / 180) * radian;
+                double trigRadians = Math.Sin(radians);
+                Console.WriteLine(trigRadians);
+                var moment1 = (trigRadians * mass) * weight; 
+                Console.WriteLine(moment1);
+            }
+        }
+    }
+}
