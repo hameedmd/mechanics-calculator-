@@ -1,11 +1,11 @@
 using System;
-using System.Runtime.InteropServices;
+using System.Dynamic;
 
 namespace calculator_1
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             Console.WriteLine("Welcome to the mechanics calculator");
             Console.WriteLine(
@@ -22,110 +22,112 @@ namespace calculator_1
                 if (option1 == "standard moments question")
                 {
                     Console.WriteLine("What is the distance of the moment?");
-                    double mass = Convert.ToDouble(Console.ReadLine());
+                    var mass = Convert.ToDouble(Console.ReadLine());
                     Console.WriteLine("What is the weight of the force?");
-                    double weight = Convert.ToDouble(Console.ReadLine());
+                    var weight = Convert.ToDouble(Console.ReadLine());
                     Console.WriteLine("What is the angle?");
-                    double radian = Convert.ToDouble(Console.ReadLine());
-                    double radians = (Math.PI / 180) * radian;
-                    Console.WriteLine("When resolving to split the force in its components, is this a sin or cos function?");
+                    var radian = Convert.ToDouble(Console.ReadLine());
+                    var radians = Math.PI / 180 * radian;
+                    Console.WriteLine(
+                        "When resolving to split the force in its components, is this a sin or cos function?");
                     if (Console.ReadLine() == "sin")
                     {
-                        double trigRadians = Math.Sin(radians);
+                        var trigRadians = Math.Sin(radians);
                         Console.WriteLine(trigRadians);
-                        var moment1 = (trigRadians * mass) * weight;
+                        var moment1 = trigRadians * mass * weight;
                         Console.WriteLine(moment1);
                     }
                     else
                     {
-                        double trigRadians = Math.Cos(radians);
+                        var trigRadians = Math.Cos(radians);
                         Console.WriteLine(trigRadians);
-                        var moment1 = (trigRadians * mass) * weight;
+                        var moment1 = trigRadians * mass * weight;
                         Console.WriteLine(moment1);
                     }
-                    
                 }
-                
+
                 //currently this will only workout an unknown force
 
                 else
                 {
                     Console.WriteLine("What is the angle of elevation");
-                    double angle = Convert.ToDouble(Console.ReadLine());
-                    Console.WriteLine("How many forces are in play here? *This includes weight of the ladder as a force*");
+                    var angle = Convert.ToDouble(Console.ReadLine());
+                    Console.WriteLine(
+                        "How many forces are in play here? *This includes weight of the ladder as a force*");
                     var numForces = Console.ReadLine();
                     if (numForces == "2")
                     {
-                        Console.WriteLine("We will be trying to workout an unknown force in a system that is in equilibrium");
+                        Console.WriteLine(
+                            "We will be trying to workout an unknown force in a system that is in equilibrium");
                         Console.WriteLine("What is the WEIGHT (including gravity) of the ladder?");
-                        double firstForce = Convert.ToDouble(Console.ReadLine());
+                        var firstForce = Convert.ToDouble(Console.ReadLine());
                         Console.WriteLine("We will be taking moments from the bottom of the ladder");
                         Console.WriteLine("What is the distance of the weight from the bottom of the ladder?");
-                        double distanceFirstForce = Convert.ToDouble(Console.ReadLine());
+                        var distanceFirstForce = Convert.ToDouble(Console.ReadLine());
                         Console.WriteLine("What is the distance of the unknown force from the bottom of the ladder");
-                        double unknownForceDistance = Convert.ToDouble(Console.ReadLine());
-                        double angle1 = (Math.PI / 180) * angle;
-                        double trigAngle = Math.Cos(angle1);
-                        double firstMoment = trigAngle * firstForce * distanceFirstForce;
-                        double unknownForce = firstMoment / unknownForceDistance * 9.8;
+                        var unknownForceDistance = Convert.ToDouble(Console.ReadLine());
+                        var angle1 = Math.PI / 180 * angle;
+                        var trigAngle = Math.Cos(angle1);
+                        var firstMoment = trigAngle * firstForce * distanceFirstForce;
+                        var unknownForce = firstMoment / unknownForceDistance * 9.8;
                         Console.WriteLine("The magnitude of the unknown force is {0}n", unknownForce);
-                        
-
                     }
 
                     //question 11 mixed exercise 4
 
                     else if (numForces == "3")
                     {
-                        Console.WriteLine("We will be trying to workout the distance an unknown force from the bottom of the ladder");
+                        Console.WriteLine(
+                            "We will be trying to workout the distance an unknown force from the bottom of the ladder");
                         Console.WriteLine("Is friction involved?");
                         if (Console.ReadLine() == "yes")
                         {
                             Console.WriteLine("Is friction given or is the coefficient of friction given?");
                             if (Console.ReadLine() == "friction")
                             {
-                                Console.WriteLine("What is the total friction? * CAUTION, it is assumed this is in newtons, if your value for friction is in g please convert by multiplying by 9.8");
-                                double friction1 = Convert.ToDouble(Console.ReadLine());
+                                Console.WriteLine(
+                                    "What is the total friction? * CAUTION, it is assumed this is in newtons, if your value for friction is in g please convert by multiplying by 9.8");
+                                var friction1 = Convert.ToDouble(Console.ReadLine());
                                 Console.WriteLine("We will be taking moments from the bottom of the ladder");
                                 Console.WriteLine("What is the MASS of the ladder?");
-                                double firstForce = Convert.ToDouble(Console.ReadLine());
+                                var firstForce = Convert.ToDouble(Console.ReadLine());
                                 Console.WriteLine("What is the distance of the weight from the bottom of the ladder");
-                                double distanceFirstForce = Convert.ToDouble(Console.ReadLine());
-                                double angle1 = (Math.PI / 180) * angle;
-                                double trigAngle = Math.Cos(angle1);
-                                double trigAngle2 = Math.Sin(angle1);
-                                double firstMoment = trigAngle * distanceFirstForce * firstForce * 9.8;
+                                var distanceFirstForce = Convert.ToDouble(Console.ReadLine());
+                                var angle1 = Math.PI / 180 * angle;
+                                var trigAngle = Math.Cos(angle1);
+                                var trigAngle2 = Math.Sin(angle1);
+                                var firstMoment = trigAngle * distanceFirstForce * firstForce * 9.8;
                                 Console.WriteLine("What is the length of the ladder");
-                                double ladderLength = Convert.ToDouble(Console.ReadLine());
-                                double secondMoment = trigAngle2 * ladderLength * friction1;
-                                Console.WriteLine("What is the MASS of the force you are trying to find the distance of?");
-                                double secondForce = Convert.ToDouble(Console.ReadLine());
-                                double thirdMoment = secondForce * trigAngle * 9.8;
-                                double unknownDistance = (secondMoment - firstMoment) / thirdMoment;
+                                var ladderLength = Convert.ToDouble(Console.ReadLine());
+                                var secondMoment = trigAngle2 * ladderLength * friction1;
+                                Console.WriteLine(
+                                    "What is the MASS of the force you are trying to find the distance of?");
+                                var secondForce = Convert.ToDouble(Console.ReadLine());
+                                var thirdMoment = secondForce * trigAngle * 9.8;
+                                var unknownDistance = (secondMoment - firstMoment) / thirdMoment;
                                 Console.WriteLine("The distance you tried to find is {0}m", unknownDistance);
-
-
                             }
                             else
                             {
                                 Console.WriteLine("We will be taking moments from the bottom of the ladder");
                                 Console.WriteLine("What is the MASS of the ladder?");
-                                double firstForce = Convert.ToDouble(Console.ReadLine());
+                                var firstForce = Convert.ToDouble(Console.ReadLine());
                                 Console.WriteLine("What is the distance of the weight from the bottom of the ladder");
-                                double distanceFirstForce = Convert.ToDouble(Console.ReadLine());
+                                var distanceFirstForce = Convert.ToDouble(Console.ReadLine());
                                 Console.WriteLine("What is the value of the second force");
-                                double thirdForce = Convert.ToDouble(Console.ReadLine());
-                                double angle1 = (Math.PI / 180) * angle;
-                                double trigAngle = Math.Cos(angle1);
-                                double trigAngle2 = Math.Sin(angle1);
-                                double firstMoment = trigAngle * distanceFirstForce * firstForce * 9.8;
+                                var thirdForce = Convert.ToDouble(Console.ReadLine());
+                                var angle1 = Math.PI / 180 * angle;
+                                var trigAngle = Math.Cos(angle1);
+                                var trigAngle2 = Math.Sin(angle1);
+                                var firstMoment = trigAngle * distanceFirstForce * firstForce * 9.8;
                                 Console.WriteLine("What is the length of the ladder");
-                                double ladderLength = Convert.ToDouble(Console.ReadLine());
-                                double secondMoment = trigAngle2 * ladderLength * thirdForce;
-                                Console.WriteLine("What is the MASS of the force you are trying to find the distance of?");
-                                double secondForce = Convert.ToDouble(Console.ReadLine());
-                                double thirdMoment = secondForce * trigAngle * 9.8;
-                                double unknownDistance = (secondMoment - firstMoment) / thirdMoment;
+                                var ladderLength = Convert.ToDouble(Console.ReadLine());
+                                var secondMoment = trigAngle2 * ladderLength * thirdForce;
+                                Console.WriteLine(
+                                    "What is the MASS of the force you are trying to find the distance of?");
+                                var secondForce = Convert.ToDouble(Console.ReadLine());
+                                var thirdMoment = secondForce * trigAngle * 9.8;
+                                var unknownDistance = (secondMoment - firstMoment) / thirdMoment;
                                 Console.WriteLine("The distance you tried to find is {0}m", unknownDistance);
                             }
                         }
@@ -133,22 +135,22 @@ namespace calculator_1
                         {
                             Console.WriteLine("We will be taking moments from the bottom of the ladder");
                             Console.WriteLine("What is the MASS of the ladder?");
-                            double firstForce = Convert.ToDouble(Console.ReadLine());
+                            var firstForce = Convert.ToDouble(Console.ReadLine());
                             Console.WriteLine("What is the distance of the weight from the bottom of the ladder");
-                            double distanceFirstForce = Convert.ToDouble(Console.ReadLine());
+                            var distanceFirstForce = Convert.ToDouble(Console.ReadLine());
                             Console.WriteLine("What is the mass of the second force");
-                            double thirdForce = Convert.ToDouble(Console.ReadLine());
-                            double angle1 = (Math.PI / 180) * angle;
-                            double trigAngle = Math.Cos(angle1);
-                            double trigAngle2 = Math.Sin(angle1);
-                            double firstMoment = trigAngle * distanceFirstForce * firstForce * 9.8;
+                            var thirdForce = Convert.ToDouble(Console.ReadLine());
+                            var angle1 = Math.PI / 180 * angle;
+                            var trigAngle = Math.Cos(angle1);
+                            var trigAngle2 = Math.Sin(angle1);
+                            var firstMoment = trigAngle * distanceFirstForce * firstForce * 9.8;
                             Console.WriteLine("What is the length of the ladder");
-                            double ladderLength = Convert.ToDouble(Console.ReadLine());
-                            double secondMoment = trigAngle2 * ladderLength * thirdForce * 9.8;
+                            var ladderLength = Convert.ToDouble(Console.ReadLine());
+                            var secondMoment = trigAngle2 * ladderLength * thirdForce * 9.8;
                             Console.WriteLine("What is the MASS of the force you are trying to find the distance of?");
-                            double secondForce = Convert.ToDouble(Console.ReadLine());
-                            double thirdMoment = secondForce * trigAngle * 9.8;
-                            double unknownDistance = (secondMoment - firstMoment) / thirdMoment;
+                            var secondForce = Convert.ToDouble(Console.ReadLine());
+                            var thirdMoment = secondForce * trigAngle * 9.8;
+                            var unknownDistance = (secondMoment - firstMoment) / thirdMoment;
                             Console.WriteLine("The distance you tried to find is {0}m", unknownDistance);
                         }
                     }
@@ -164,16 +166,48 @@ namespace calculator_1
                         {
                             Console.WriteLine("We will be taking moments from the bottom of the ladder");
                             Console.WriteLine("What is the distance of the first force from the bottom of the ladder");
-                            double distanceFirstForce = Convert.ToDouble(Console.ReadLine());
-                            double angle1 = (Math.PI / 180) * angle;
-                            double trigAngle = Math.Cos(angle1);
-                            double firstMoment = trigAngle * distanceFirstForce;
-
+                            var distanceFirstForce = Convert.ToDouble(Console.ReadLine());
+                            var angle1 = Math.PI / 180 * angle;
+                            var trigAngle = Math.Cos(angle1);
+                            var firstMoment = trigAngle * distanceFirstForce;
                         }
                     }
                 }
             }
 
+            else if (option == "kinematics")
+            {
+                Console.WriteLine("Is this question a constant acceleration, constant velocity or variable acceleration?");
+                var option1 = Console.ReadLine();
+                if (option1 == "variable acceleration")
+                {
+                    Console.WriteLine("Are you trying to work out distance, velocity or acceleration?");
+                    if (Console.ReadLine() == "distance")
+                    {
+                        Console.WriteLine("What do you currently have?");
+                        if (Console.ReadLine() == "velocity")
+                        {
+                            Console.WriteLine("To workout distance from velocity, we have to integrate once, please enter your velocity");
+                            int v = Convert.ToInt32(Console.ReadLine());
+                        }
+                        else
+                        {
+                            
+                        }
+                    }
+
+                }
+                else if (option1 == "constant acceleration")
+                {
+
+                }
+                else if (option1 == "constant velocity")
+                {
+
+                }
+
+            }
         }
     }
 }
+
