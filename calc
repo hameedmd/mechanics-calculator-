@@ -108,20 +108,48 @@ namespace calculator_1
                             }
                             else
                             {
-                                
+                                Console.WriteLine("We will be taking moments from the bottom of the ladder");
+                                Console.WriteLine("What is the MASS of the ladder?");
+                                double firstForce = Convert.ToDouble(Console.ReadLine());
+                                Console.WriteLine("What is the distance of the weight from the bottom of the ladder");
+                                double distanceFirstForce = Convert.ToDouble(Console.ReadLine());
+                                Console.WriteLine("What is the value of the second force");
+                                double thirdForce = Convert.ToDouble(Console.ReadLine());
+                                double angle1 = (Math.PI / 180) * angle;
+                                double trigAngle = Math.Cos(angle1);
+                                double trigAngle2 = Math.Sin(angle1);
+                                double firstMoment = trigAngle * distanceFirstForce * firstForce * 9.8;
+                                Console.WriteLine("What is the length of the ladder");
+                                double ladderLength = Convert.ToDouble(Console.ReadLine());
+                                double secondMoment = trigAngle2 * ladderLength * thirdForce;
+                                Console.WriteLine("What is the MASS of the force you are trying to find the distance of?");
+                                double secondForce = Convert.ToDouble(Console.ReadLine());
+                                double thirdMoment = secondForce * trigAngle * 9.8;
+                                double unknownDistance = (secondMoment - firstMoment) / thirdMoment;
+                                Console.WriteLine("The distance you tried to find is {0}m", unknownDistance);
                             }
                         }
                         else
                         {
                             Console.WriteLine("We will be taking moments from the bottom of the ladder");
-                            Console.WriteLine("What is the WEIGHT (including gravity) of the ladder?");
+                            Console.WriteLine("What is the MASS of the ladder?");
                             double firstForce = Convert.ToDouble(Console.ReadLine());
-                            Console.WriteLine("What is the distance of the first force from the bottom of the ladder");
+                            Console.WriteLine("What is the distance of the weight from the bottom of the ladder");
                             double distanceFirstForce = Convert.ToDouble(Console.ReadLine());
+                            Console.WriteLine("What is the mass of the second force");
+                            double thirdForce = Convert.ToDouble(Console.ReadLine());
                             double angle1 = (Math.PI / 180) * angle;
                             double trigAngle = Math.Cos(angle1);
-                            double firstMoment = trigAngle * distanceFirstForce;
-
+                            double trigAngle2 = Math.Sin(angle1);
+                            double firstMoment = trigAngle * distanceFirstForce * firstForce * 9.8;
+                            Console.WriteLine("What is the length of the ladder");
+                            double ladderLength = Convert.ToDouble(Console.ReadLine());
+                            double secondMoment = trigAngle2 * ladderLength * thirdForce * 9.8;
+                            Console.WriteLine("What is the MASS of the force you are trying to find the distance of?");
+                            double secondForce = Convert.ToDouble(Console.ReadLine());
+                            double thirdMoment = secondForce * trigAngle * 9.8;
+                            double unknownDistance = (secondMoment - firstMoment) / thirdMoment;
+                            Console.WriteLine("The distance you tried to find is {0}m", unknownDistance);
                         }
                     }
                     else if (numForces == "4")
