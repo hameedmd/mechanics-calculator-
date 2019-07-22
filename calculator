@@ -1,0 +1,84 @@
+using System;
+
+namespace calc
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Welcome to the mechanics calculator");
+            Console.WriteLine(
+                "What type of question are you looking to answer: we can help you with moments, forces and friction, projectiles, application of forces and kinematics");
+            Console.WriteLine("Please choose an option");
+
+            var option = Console.ReadLine();
+
+            if (option == "moments")
+            {
+                Console.WriteLine("Is this a standard moments question or ladder question?");
+                var option1 = Console.ReadLine();
+
+                if (option1 == "standard")
+                {
+                    var mech = new moments();
+                    mech.Standard();
+
+                }
+                else
+                {
+                    var mech = new moments();
+                    mech.Ladder();
+                }
+            }
+
+            else if (option == "kinematics")
+            {
+                Console.WriteLine(
+                    "Is this question a constant acceleration, constant velocity or variable acceleration?");
+                var option1 = Console.ReadLine();
+                if (option1 == "variable acceleration")
+                {
+                    var mech = new kinematics();
+                    mech.VariableAcceleration();
+                }
+                else if (option1 == "constant acceleration")
+                {
+                    var mech = new kinematics();
+                    mech.ConstantAcceleration();
+                }
+                else if (option1 == "constant velocity")
+                {
+                    var mech = new kinematics();
+                    mech.ConstantVelocity();
+                }
+            }
+
+            else if (option == "projectiles")
+            {
+                Console.WriteLine("Is this a horizontal projectile or in both directions");
+
+                if (Console.ReadLine() == "horizontal")
+                {
+                    var mech = new projectiles();
+                    mech.Horizontal();
+                }
+
+                else
+                {
+                    var mech = new projectiles();
+                    mech.Vertical();
+                }
+            }
+
+            else if (option == "forces and friction")
+            {
+
+            }
+
+            else if (option == "application of forces")
+            {
+
+            }
+        }
+    }
+}
