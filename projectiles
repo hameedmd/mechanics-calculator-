@@ -1,0 +1,60 @@
+using System;
+
+namespace calc
+{
+    class projectiles
+    {
+        public void Horizontal()
+        {
+            Console.WriteLine("The horizontal motion of a projectile is modelled as having constant velocity (a = 0). Use the formula s =vt");
+            Console.WriteLine("Are you trying to find distance, time or velocity?");
+            var option2 = Console.ReadLine();
+
+            if (option2 == "distance")
+            {
+                Console.WriteLine("What is the time?");
+                double time = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("What is the velocity");
+                double velocity = Convert.ToDouble(Console.ReadLine());
+                double distance = velocity * time;
+                Console.WriteLine("distance is {0}m", distance);
+            }
+            else if (option2 == "time")
+            {
+                Console.WriteLine("What is the distance?");
+                double distance = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("What is the velocity");
+                double velocity = Convert.ToDouble(Console.ReadLine());
+                double time = distance / velocity;
+                Console.WriteLine("time is {0} s ", time);
+            }
+            else if (option2 == "velocity")
+            {
+                Console.WriteLine("What is the time?");
+                double time = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("What is the distance");
+                double distance = Convert.ToDouble(Console.ReadLine());
+                double velocity = distance / time;
+                Console.WriteLine("velocity is {0} m/s", velocity);
+            }
+        }
+
+        public void Vertical()
+        {
+            Console.WriteLine("To work out vertical components we are going to have to use the other suvat equations");
+            Console.WriteLine("First tell us what components you already know");
+            Console.WriteLine("Do you know the distance, if not write n/a");
+            var s = Console.ReadLine();
+            Console.WriteLine("What is the initial velocity, if not write n/a ");
+            var u = Console.ReadLine();
+            Console.WriteLine("What is the final velocity, if not write n/a ");
+            var v = Console.ReadLine();
+            Console.WriteLine("Do you know the acceleration, if not write n/a ");
+            var a = Console.ReadLine();
+            Console.WriteLine("Do you know the time, if not write n/a ");
+            var t = Console.ReadLine();
+            Console.WriteLine("Now what are you trying to work out");
+            var option2 = Console.ReadLine();
+        }
+    }
+}
