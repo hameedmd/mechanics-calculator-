@@ -1,0 +1,36 @@
+using System;
+
+namespace calc
+{
+    class kinematics
+    {
+        public void VariableAcceleration()
+        {
+            Console.WriteLine("Are you trying to work out distance, velocity or acceleration?");
+            if (Console.ReadLine() == "distance")
+            {
+                Console.WriteLine("What do you currently have?");
+                if (Console.ReadLine() == "velocity")
+                {
+                    Console.WriteLine(
+                        "To workout distance from velocity, we have to integrate once, please enter your velocity");
+                    int v = Convert.ToInt32(Console.ReadLine());
+                }
+                else
+                {
+
+                }
+            }
+        }
+
+        public void ConstantAcceleration()
+        {
+
+        }
+
+        public void ConstantVelocity(
+        {
+
+        }
+    }
+}
