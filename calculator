@@ -10,24 +10,22 @@ namespace calc
             Console.WriteLine(
                 "What type of question are you looking to answer: we can help you with moments, forces and friction, projectiles, application of forces and kinematics");
             Console.WriteLine("Please choose an option");
-
             var option = Console.ReadLine();
-
+            
             if (option == "moments")
             {
                 Console.WriteLine("Is this a standard moments question or ladder question?");
-                var option1 = Console.ReadLine();
+                var momentType = Console.ReadLine();
+                var momentsAboutAPivot = new StandardMomentsCalculator();
+                var momentsOnALadder = new MomentsAboutALadder();
 
-                if (option1 == "standard")
+                if (momentType == "standard")
                 {
-                    var mech = new moments();
-                    mech.Standard();
-
+                    momentsAboutAPivot.CalculateStandardExercise();
                 }
                 else
                 {
-                    var mech = new moments();
-                    mech.Ladder();
+                    momentsOnALadder.CalculateLadderExercise();
                 }
             }
 
@@ -38,17 +36,17 @@ namespace calc
                 var option1 = Console.ReadLine();
                 if (option1 == "variable acceleration")
                 {
-                    var mech = new kinematics();
+                    var mech = new Kinematics();
                     mech.VariableAcceleration();
                 }
                 else if (option1 == "constant acceleration")
                 {
-                    var mech = new kinematics();
+                    var mech = new Kinematics();
                     mech.ConstantAcceleration();
                 }
                 else if (option1 == "constant velocity")
                 {
-                    var mech = new kinematics();
+                    var mech = new Kinematics();
                     mech.ConstantVelocity();
                 }
             }
@@ -56,17 +54,15 @@ namespace calc
             else if (option == "projectiles")
             {
                 Console.WriteLine("Is this a horizontal projectile or in both directions");
-
                 if (Console.ReadLine() == "horizontal")
                 {
-                    var mech = new projectiles();
-                    mech.Horizontal();
+                    var horizontalMotion = new ProjectileHorizontalMotion();
+                    horizontalMotion.Horizontal();
                 }
-
                 else
                 {
-                    var mech = new projectiles();
-                    mech.Vertical();
+                    var verticalMotion = new ProjectileVerticalMotion();
+                    verticalMotion.Vertical();
                 }
             }
 
