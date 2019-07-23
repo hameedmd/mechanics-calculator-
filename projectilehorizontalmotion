@@ -2,7 +2,7 @@ using System;
 
 namespace calc
 {
-    class projectiles
+    class ProjectileHorizontalMotion
     {
         public void Horizontal()
         {
@@ -37,24 +37,6 @@ namespace calc
                 double velocity = distance / time;
                 Console.WriteLine("velocity is {0} m/s", velocity);
             }
-        }
-
-        public void Vertical()
-        {
-            Console.WriteLine("To work out vertical components we are going to have to use the other suvat equations");
-            Console.WriteLine("First tell us what components you already know");
-            Console.WriteLine("Do you know the distance, if not write n/a");
-            var s = Console.ReadLine();
-            Console.WriteLine("What is the initial velocity, if not write n/a ");
-            var u = Console.ReadLine();
-            Console.WriteLine("What is the final velocity, if not write n/a ");
-            var v = Console.ReadLine();
-            Console.WriteLine("Do you know the acceleration, if not write n/a ");
-            var a = Console.ReadLine();
-            Console.WriteLine("Do you know the time, if not write n/a ");
-            var t = Console.ReadLine();
-            Console.WriteLine("Now what are you trying to work out");
-            var option2 = Console.ReadLine();
         }
     }
 }
