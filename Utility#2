@@ -1,0 +1,13 @@
+using System;
+
+namespace calc
+{
+    internal static class Utility
+    {
+        public static double Ask(string question)
+        {
+            Console.Write(question);
+            return Convert.ToDouble(Console.ReadLine());
+        }
+    }
+}
