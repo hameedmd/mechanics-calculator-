@@ -1,0 +1,26 @@
+namespace calc
+{
+    internal class CommonAttributes
+    {
+        public CommonAttributes(double angle, double weight1St, double distance1St, double friction,
+            double coefficientFriction,
+            double ladderLength, double secondForce)
+        {
+            Angle = angle;
+            Weight1St = weight1St;
+            Distance1St = distance1St;
+            Friction = friction;
+            CoefficientFriction = coefficientFriction;
+            LadderLength = ladderLength;
+            SecondForce = secondForce;
+        }
+
+        private double Angle { get; set; }
+        private double Weight1St { get; set; }
+        private double Distance1St { get; set; }
+        private double Friction { get; set; }
+        private double CoefficientFriction { get; set; }
+        private double LadderLength { get; set; }
+        private double SecondForce { get; set; }
+    }
+}
