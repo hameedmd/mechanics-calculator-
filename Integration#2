@@ -1,0 +1,19 @@
+using System;
+
+namespace calc
+{
+    internal class Integration
+    {
+        public static void Integral()
+        {
+            Console.WriteLine("Enter your number");
+            var number = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("enter your letter");
+            var letter = Console.ReadLine();
+            Console.WriteLine("enter your power");
+            var power = Convert.ToInt32(Console.ReadLine());
+            var power1 = power++;
+            Console.WriteLine($"{number}/{power1}{letter}^{power}");
+        }
+    }
+}
