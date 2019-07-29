@@ -1,4 +1,5 @@
 using System;
+using static System.Console;
 
 namespace calc
 {
@@ -6,58 +7,56 @@ namespace calc
     {
         public static void Vertical()
         {
-            Console.WriteLine("To work out vertical components we are going to have to use the other suvat equations");
-            Console.WriteLine("Does the projectile start from the ground or an elevated position");
-
-            if (Console.ReadLine() == "ground")
+            WriteLine("To work out vertical components we are going to have to use the other suvat equations");
+            WriteLine("Does the projectile start from the ground or an elevated position");
+            if (ReadLine() == "ground")
             {
-                Console.WriteLine(
+                WriteLine(
                     "Pick the appropriate suvat equation to use : v^2 = u^2 + 2as , s = ut + 1/2 at^2 , s = vt - 1/2 at^2 , v = u + at , s = 1/2(u + v)t, you can write the numbers 1-5 in corresponding order");
-                var option = Console.ReadLine();
+                var option = ReadLine();
 
                 switch (option)
                 {
                     case "1":
                     {
-                        Console.WriteLine(
+                        WriteLine(
                             "This is the equation to workout final velocity but can be manipulated to workout other components");
-                        Console.WriteLine("Do you want to workout velocity");
-                        if (Console.ReadLine() == "yes")
+                        WriteLine("Do you want to workout velocity");
+                        if (ReadLine() == "yes")
                         {
                             var u = Utility.Ask("What is the initial velocity \n");
                             var a = Utility.Ask("What is the acceleration \n");
                             var s = Utility.Ask("What is the distance \n");
                             var velocity = Math.Sqrt(u * u + 2 * a * s);
-                            Console.WriteLine(velocity);
+                            WriteLine(velocity);
                         }
                         else
                         {
-                            Console.WriteLine("Do you want to workout initial velocity, acceleration or distance?");
-                            if (Console.ReadLine() == "initial velocity")
+                            WriteLine("Do you want to workout initial velocity, acceleration or distance?");
+                            if (ReadLine() == "initial velocity")
                             {
                                 var v = Utility.Ask("What is the velocity \n");
                                 var a = Utility.Ask("What is the acceleration \n");
                                 var s = Utility.Ask("What is the distance \n");
                                 var velocity = Math.Sqrt(v * v - 2 * a * s);
-                                Console.WriteLine(velocity);
+                                WriteLine(velocity);
                             }
 
-                            if (Console.ReadLine() == "acceleration")
+                            if (ReadLine() == "acceleration")
                             {
                                 var v = Utility.Ask("What is the velocity \n");
                                 var s = Utility.Ask("What is the distance \n");
                                 var u = Utility.Ask("What is the initial velocity \n");
                                 var acceleration = (v * v - u * u) / (2 * s);
-                                Console.WriteLine(acceleration);
+                                WriteLine(acceleration);
                             }
-
                             else
                             {
                                 var v = Utility.Ask("What is the velocity \n");
                                 var a = Utility.Ask("What is the acceleration \n");
                                 var u = Utility.Ask("What is the initial velocity \n");
                                 var distance = (v * v - u * u) / (2 * a);
-                                Console.WriteLine(distance);
+                                WriteLine(distance);
                             }
                         }
 
@@ -65,29 +64,29 @@ namespace calc
                     }
                     case "2":
                     {
-                        Console.WriteLine(
+                        WriteLine(
                             "This is the equation to workout distance when initial velocity is known but can be manipulated to workout other components");
-                        Console.WriteLine("Do you want to workout distance");
-                        if (Console.ReadLine() == "yes")
+                        WriteLine("Do you want to workout distance");
+                        if (ReadLine() == "yes")
                         {
                             var u = Utility.Ask("What is the initial velocity \n");
                             var a = Utility.Ask("What is the acceleration \n");
                             var t = Utility.Ask("What is the time \n");
                             var distance = u * t + 0.5 * a * (t * t);
-                            Console.WriteLine(distance);
+                            WriteLine(distance);
                         }
-
                         else
                         {
-                            Console.WriteLine("Do you want to workout initial velocity, acceleration or time?");
-                            var option1 = Console.ReadLine();
+                            WriteLine("Do you want to workout initial velocity, acceleration or time?");
+                            var option1 = ReadLine();
                             if (option1 == "initial velocity")
                             {
                                 var s = Utility.Ask("What is the distance \n");
                                 var a = Utility.Ask("What is the acceleration \n");
                                 var t = Utility.Ask("What is the time \n");
                                 var initialvelocity = (s - 0.5 * a * (t * t)) / t;
-                                Console.WriteLine(initialvelocity);
+                                WriteLine(initialvelocity);
+                                break;
                             }
 
                             if (option1 == "acceleration")
@@ -96,21 +95,21 @@ namespace calc
                                 var s = Utility.Ask("What is the distance \n");
                                 var u = Utility.Ask("What is the initial velocity \n");
                                 var acceleration = (s - u * t) / (0.5 * (t * t));
-                                Console.WriteLine(acceleration);
+                                WriteLine(acceleration);
                             }
-
                             else
                             {
+                                //mixed exercise 6, question 8,6
                                 var s = Utility.Ask("What is the distance \n");
                                 var a = Utility.Ask("What is the acceleration \n");
                                 var u = Utility.Ask("What is the initial velocity \n");
                                 var time = (-u + Math.Sqrt(u * u - 2 * a * -s)) / a;
                                 var time1 = (-u - Math.Sqrt(u * u - 2 * a * -s)) / a;
-                                Console.WriteLine(time);
-                                Console.WriteLine(time1);
-                                Console.WriteLine(
+                                WriteLine(time);
+                                WriteLine(time1);
+                                WriteLine(
                                     "Is this question asking for the length of time a particle is above a particular height");
-                                if (Console.ReadLine() == "yes") Console.WriteLine(time1 - time);
+                                if (ReadLine() == "yes") WriteLine(time1 - time);
                             }
                         }
 
@@ -118,47 +117,47 @@ namespace calc
                     }
                     case "3":
                     {
-                        Console.WriteLine(
+                        WriteLine(
                             "This is the equation to workout distance when final velocity is known but can be manipulated to workout other components");
-                        Console.WriteLine("Do you want to workout distance");
-                        if (Console.ReadLine() == "yes")
+                        WriteLine("Do you want to workout distance");
+                        if (ReadLine() == "yes")
                         {
                             var v = Utility.Ask("What is the final velocity  \n");
                             var a = Utility.Ask("What is the acceleration \n");
                             var t = Utility.Ask("What is the time\n");
                             var distance = v * t - 0.5 * a * (t * t);
-                            Console.WriteLine(distance);
+                            WriteLine(distance);
                         }
                         else
                         {
-                            Console.WriteLine("Do you want to workout final velocity, acceleration or time?");
-                            var option1 = Console.ReadLine();
+                            WriteLine("Do you want to workout final velocity, acceleration or time?");
+                            var option1 = ReadLine();
                             if (option1 == "final velocity")
                             {
                                 var s = Utility.Ask("What is the distance \n");
                                 var a = Utility.Ask("What is the acceleration \n");
                                 var t = Utility.Ask("What is the time \n");
                                 var finalV = (s + 0.5 * a * (t * t)) / t;
-                                Console.WriteLine(finalV);
+                                WriteLine(finalV);
                             }
 
                             if (option1 == "acceleration")
                             {
                                 var v = Utility.Ask("What is the final velocity \n");
                                 var s = Utility.Ask("What is the distance \n");
-                                var t = Utility.Ask(" What is the time\n");
+                                var t = Utility.Ask("What is the time\n");
                                 var acceleration = (v * t - s) / 0.5 * (t * t);
-                                Console.WriteLine(acceleration);
+                                WriteLine(acceleration);
                             }
                             else
                             {
-                                var v = Utility.Ask(" What is the final velocity\n");
+                                var v = Utility.Ask("What is the final velocity\n");
                                 var a = Utility.Ask("What is the acceleration \n");
                                 var s = Utility.Ask("What is the distance \n");
                                 var time = (-v + Math.Sqrt(v * v - 2 * a * s)) / a;
                                 var time1 = (-v - Math.Sqrt(v * v - 2 * a * s)) / a;
-                                Console.WriteLine(time);
-                                Console.WriteLine(time1);
+                                WriteLine(time);
+                                WriteLine(time1);
                             }
                         }
 
@@ -166,6 +165,50 @@ namespace calc
                     }
                     case "4":
                     {
+                        WriteLine(
+                            "This is the equation to workout final velocity but can be manipulated to workout other components");
+                        WriteLine("Do you want to workout final velocity");
+                        if (ReadLine() == "yes")
+                        {
+                            var u = Utility.Ask("What is the initial velocity  \n");
+                            var a = Utility.Ask("What is the acceleration \n");
+                            var t = Utility.Ask("What is the time\n");
+                            var finalVelocity = u + a * t;
+                            WriteLine(finalVelocity);
+                        }
+                        else
+                        {
+                            WriteLine("Do you want to workout final velocity, acceleration or time?");
+                            var option1 = ReadLine();
+                            if (option1 == "final velocity")
+                            {
+                                var s = Utility.Ask("What is the distance \n");
+                                var a = Utility.Ask("What is the acceleration \n");
+                                var t = Utility.Ask("What is the time \n");
+                                var finalV = (s + 0.5 * a * (t * t)) / t;
+                                WriteLine(finalV);
+                            }
+
+                            if (option1 == "acceleration")
+                            {
+                                var v = Utility.Ask("What is the final velocity \n");
+                                var s = Utility.Ask("What is the distance \n");
+                                var t = Utility.Ask("What is the time\n");
+                                var acceleration = (v * t - s) / 0.5 * (t * t);
+                                WriteLine(acceleration);
+                            }
+                            else
+                            {
+                                var v = Utility.Ask("What is the final velocity\n");
+                                var a = Utility.Ask("What is the acceleration \n");
+                                var s = Utility.Ask("What is the distance \n");
+                                var time = (-v + Math.Sqrt(v * v - 2 * a * s)) / a;
+                                var time1 = (-v - Math.Sqrt(v * v - 2 * a * s)) / a;
+                                WriteLine(time);
+                                WriteLine(time1);
+                            }
+                        }
+
                         break;
                     }
                     case "5":
@@ -173,10 +216,6 @@ namespace calc
                         break;
                     }
                 }
-            }
-            else
-            {
-                
             }
         }
     }
