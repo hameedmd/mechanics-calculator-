@@ -1,4 +1,4 @@
-using System;
+using static System.Console;
 
 namespace calc
 {
@@ -6,19 +6,19 @@ namespace calc
     {
         public static void Horizontal()
         {
-            Console.WriteLine(
+            WriteLine(
                 "The horizontal motion of a projectile is modelled as having constant velocity (a = 0). Use the formula s =vt");
-            Console.WriteLine("Are you trying to find distance, time or velocity?");
-            var option2 = Console.ReadLine();
+            WriteLine("Are you trying to find distance, time or velocity?");
+            var option2 = ReadLine();
 
             switch (option2)
             {
                 case "distance":
-                {
+                {                                           //mixed exercise 6, question 8
                     var time = Utility.Ask("What is the time? \n");
                     var velocity = Utility.Ask("What is the velocity\n");
                     var distance = velocity * time;
-                    Console.WriteLine("distance is {0}m", distance);
+                    WriteLine("distance is {0}m", distance);
                     break;
                 }
                 case "time":
@@ -26,7 +26,7 @@ namespace calc
                     var distance = Utility.Ask("What is the distance? \n");
                     var velocity = Utility.Ask("What is the velocity \n");
                     var time = distance / velocity;
-                    Console.WriteLine("time is {0} s ", time);
+                    WriteLine("time is {0} s ", time);
                     break;
                 }
                 case "velocity":
@@ -34,7 +34,7 @@ namespace calc
                     var time = Utility.Ask("What is the time? \n");
                     var distance = Utility.Ask("What is the distance \n");
                     var velocity = distance / time;
-                    Console.WriteLine("velocity is {0} m/s", velocity);
+                    WriteLine("velocity is {0} m/s", velocity);
                     break;
                 }
             }
