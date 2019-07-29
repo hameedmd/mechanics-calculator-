@@ -1,4 +1,5 @@
 using System;
+using static System.Console;
 
 namespace calc
 {
@@ -6,14 +7,14 @@ namespace calc
     {
         public static void Derivative()
         {
-            Console.WriteLine("Enter your number");
-            var number = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("enter your letter");
-            var letter = Console.ReadLine();
-            Console.WriteLine("enter your power");
-            var power = Convert.ToInt32(Console.ReadLine());
+            WriteLine("Enter your number");
+            var number = Convert.ToInt32(ReadLine());
+            WriteLine("enter your letter");
+            var letter = ReadLine();
+            WriteLine("enter your power");
+            var power = Convert.ToInt32(ReadLine());
             var power1 = power--;
-            Console.WriteLine($"{number * power1}{letter}^{power}");
+            WriteLine($"{number * power1}{letter}^{power}");
         }
     }
 }
