@@ -1,0 +1,37 @@
+using System;
+using System.Dynamic;
+using System.Runtime;
+using System.Threading;
+
+namespace calc
+{
+    public class CommonAttributes
+    {
+        public double Distance1St { get; }
+        public double Friction { get; }
+        public double CoefficientFriction { get; }
+        public double Angle { get; }
+        public double Weight1St { get;}
+        public double LadderLength { get;}
+        public double SecondForce { get;}
+
+        public CommonAttributes(
+            double angle, 
+            double weight1St, 
+            double distance1St, 
+            double friction, 
+            double coefficientFriction, 
+            double ladderLength,
+            double secondForce)
+        {
+            Angle = angle;
+            Weight1St = weight1St;
+            Distance1St = distance1St;
+            Friction = friction;
+            CoefficientFriction = coefficientFriction;
+            LadderLength = ladderLength;
+            SecondForce = secondForce;
+        }
+
+    }
+}
