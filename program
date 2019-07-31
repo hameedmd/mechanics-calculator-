@@ -1,0 +1,90 @@
+using System;
+using static System.Console;
+
+namespace calc
+{
+    internal static class Program
+    {
+        private static void Main(string[] args)
+        {
+            Console.WriteLine("*PLEASE ENTER NUMBERS FOR YOUR OPTIONS, EVERYTHING IS IN CORRESPONDING ORDER*\n");
+            WriteLine("Welcome to the mechanics calculator");
+            loop:
+            WriteLine(
+                "What type of question are you looking to answer, we can help you with:\n\n[1]: Moments \n[2]: Forces and Friction \n[3]: Projectiles \n[4]: Application of Forces \n[5]: Kinematics");
+            WriteLine("\nPlease choose an option\n");
+            var option = ReadLine();
+
+            switch (option)
+            {
+                case "1":
+                {
+                    WriteLine("\nIs this a standard moments question or ladder question?");
+                    var momentType = ReadLine();
+
+                    if (momentType == "1")
+                        StandardMomentsCalculator.CalculateStandardExercise();
+                    else
+                        MomentsAboutALadder.CalculateLadderExercise();
+                    break;
+                }
+                case "2":
+                {
+                    WriteLine(
+                        "Is this question a variable acceleration, constant acceleration or constant velocity?");
+                    var option1 = ReadLine();
+                    switch (option1)
+                    {
+                        case "1":
+                        {
+                            var mech = new Kinematics();
+                            Kinematics.VariableAcceleration();
+                            break;
+                        }
+                        case "2":
+                        {
+                            var mech = new Kinematics();
+                            mech.ConstantAcceleration();
+                            break;
+                        }
+                        case "3":
+                        {
+                            var mech = new Kinematics();
+                            mech.ConstantVelocity();
+                            break;
+                        }
+                    }
+
+                    break;
+                }
+                case "3":
+                {
+                    WriteLine("Is this a horizontal projectile or in both directions");
+                    if (ReadLine() == "1")
+                    {
+                        ProjectileHorizontalMotion.Horizontal();
+                    }
+                    else
+                    {
+                        ProjectileVerticalMotion.Vertical();
+                    }
+
+                    break;
+                }
+                case "4":
+                {
+                    break;
+                }
+                case "5":
+                {
+                    break;
+                }
+            }
+
+            WriteLine("Do you want to try another question?");
+            var option5 = ReadLine();
+            if (option5 == "yes") goto loop;
+            Read();
+        }
+    }
+}
