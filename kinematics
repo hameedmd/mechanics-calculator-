@@ -1,36 +1,31 @@
 using System;
+using static System.Console;
 
 namespace calc
 {
-    class kinematics
+    internal class Kinematics
     {
-        public void VariableAcceleration()
+        public static void VariableAcceleration()
         {
-            Console.WriteLine("Are you trying to work out distance, velocity or acceleration?");
-            if (Console.ReadLine() == "distance")
+            WriteLine("Are you trying to work out distance, velocity or acceleration?");
+            if (ReadLine() == "distance")
             {
-                Console.WriteLine("What do you currently have?");
-                if (Console.ReadLine() == "velocity")
+                WriteLine("What do you currently have?");
+                if (ReadLine() == "velocity")
                 {
-                    Console.WriteLine(
+                    WriteLine(
                         "To workout distance from velocity, we have to integrate once, please enter your velocity");
-                    int v = Convert.ToInt32(Console.ReadLine());
-                }
-                else
-                {
-
+                    var v = Convert.ToInt32(ReadLine());
                 }
             }
         }
 
         public void ConstantAcceleration()
         {
-
         }
 
-        public void ConstantVelocity(
+        public void ConstantVelocity()
         {
-
         }
     }
 }
