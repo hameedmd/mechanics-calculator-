@@ -1,8 +1,13 @@
 using System;
+using MathNet.Numerics.LinearRegression;
 
 namespace calc
 {
-    class applicationForces
+    class ApplicationForces
     {
+        public static void APP()
+        {
+        
+        }
     }
 }
