@@ -1,0 +1,2 @@
+# mechanics-calculator-
+ya narsayyyeeeeeee
