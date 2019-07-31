@@ -1,41 +1,42 @@
-using System;
+using static System.Console;
 
 namespace calc
 {
-    class ProjectileHorizontalMotion
+    internal class ProjectileHorizontalMotion
     {
-        public void Horizontal()
+        public static void Horizontal()
         {
-            Console.WriteLine("The horizontal motion of a projectile is modelled as having constant velocity (a = 0). Use the formula s =vt");
-            Console.WriteLine("Are you trying to find distance, time or velocity?");
-            var option2 = Console.ReadLine();
+            WriteLine(
+                "The horizontal motion of a projectile is modelled as having constant velocity (a = 0). Use the formula s =vt");
+            WriteLine("Are you trying to find distance, time or velocity?");
+            var option2 = ReadLine();
 
-            if (option2 == "distance")
+            switch (option2)
             {
-                Console.WriteLine("What is the time?");
-                double time = Convert.ToDouble(Console.ReadLine());
-                Console.WriteLine("What is the velocity");
-                double velocity = Convert.ToDouble(Console.ReadLine());
-                double distance = velocity * time;
-                Console.WriteLine("distance is {0}m", distance);
-            }
-            else if (option2 == "time")
-            {
-                Console.WriteLine("What is the distance?");
-                double distance = Convert.ToDouble(Console.ReadLine());
-                Console.WriteLine("What is the velocity");
-                double velocity = Convert.ToDouble(Console.ReadLine());
-                double time = distance / velocity;
-                Console.WriteLine("time is {0} s ", time);
-            }
-            else if (option2 == "velocity")
-            {
-                Console.WriteLine("What is the time?");
-                double time = Convert.ToDouble(Console.ReadLine());
-                Console.WriteLine("What is the distance");
-                double distance = Convert.ToDouble(Console.ReadLine());
-                double velocity = distance / time;
-                Console.WriteLine("velocity is {0} m/s", velocity);
+                case "distance":
+                {                                           //mixed exercise 6, question 8
+                    var time = Utility.Ask("What is the time? \n");
+                    var velocity = Utility.Ask("What is the velocity\n");
+                    var distance = velocity * time;
+                    WriteLine("distance is {0}m", distance);
+                    break;
+                }
+                case "time":
+                {
+                    var distance = Utility.Ask("What is the distance? \n");
+                    var velocity = Utility.Ask("What is the velocity \n");
+                    var time = distance / velocity;
+                    WriteLine("time is {0} s ", time);
+                    break;
+                }
+                case "velocity":
+                {
+                    var time = Utility.Ask("What is the time? \n");
+                    var distance = Utility.Ask("What is the distance \n");
+                    var velocity = distance / time;
+                    WriteLine("velocity is {0} m/s", velocity);
+                    break;
+                }
             }
         }
     }
