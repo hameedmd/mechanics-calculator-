@@ -1,0 +1,25 @@
+using System;
+using static System.Console;
+
+namespace calc
+{
+    internal class Integration
+    {
+        public static void Integral()
+        {
+            WriteLine("Enter your number");
+            var number = Convert.ToInt32(ReadLine());
+            WriteLine("enter your letter");
+            var letter = ReadLine();
+            WriteLine("enter your power");
+            var power = Convert.ToInt32(ReadLine());
+            var power1 = power++;
+            WriteLine($"{number}/{power1}{letter}^{power}");
+            WriteLine("what value would you like to put in this expression?");
+            var x = Convert.ToInt32(ReadLine());
+            var y = (number / power);
+            var integral = y * Math.Pow(x, power);
+            WriteLine(integral);
+        }
+    }
+}
