@@ -1,39 +1,59 @@
 using System;
+using static System.Console;
 
 namespace calc
 {
-    internal class StandardMomentsCalculator
-    { 
-        public void CalculateStandardExercise()
+    internal static class StandardMomentsCalculator
+    {
+        public static void CalculateStandardExercise()
         {
-            Console.WriteLine("What is the perpendicular distance length of the moment?");
-            var length = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("What is the weight of the force?");
-            var weight = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("What is the angle?");
-            var radian = Convert.ToDouble(Console.ReadLine());
+            var length = Utility.Ask("\nWhat is the perpendicular distance length of the moment? \n");
+            var weight = Utility.Ask("\nWhat is the weight of the force?\n");
+            var radian = Utility.Ask("\nWhat is the angle \n");
             var radians = Math.PI / 180 * radian;
-            Console.WriteLine(
-                "When resolving to split the force in its components, is this a sin or cos function?");
-            if (Console.ReadLine() == "sin")
+
+            var calculateMoment = new CommonAttributes(radians, weight, length, 1, 2, 3, 4);  
+            WriteLine(
+                "\nWhen resolving to split the force in its components, is this a sin or cos function?");
+            if (ReadLine() == "1")
             {
-                var trigRadians = Math.Sin(radians);
-                Console.WriteLine(trigRadians);
-                var moment1 = trigRadians * length * weight;
-                Console.WriteLine(moment1);
+                var trigRadians = Math.Sin(calculateMoment.Angle);
+                //decide if want to show the trig-angle WriteLine(trigRadians);
+                var moment1 = trigRadians * calculateMoment.Distance1St * calculateMoment.Weight1St;
+                WriteLine(moment1);
             }
             else
             {
-                var trigRadians = Math.Cos(radians);
-                Console.WriteLine(trigRadians);
-                var moment1 = trigRadians * length * weight;
-                Console.WriteLine(moment1);
+                var trigRadians = Math.Cos(calculateMoment.Angle);
+                // "                                   "WriteLine(trigRadians);
+                var moment1 = trigRadians * calculateMoment.Distance1St * calculateMoment.Weight1St;
+                WriteLine(moment1);
             }
-        }
 
-        
-          
-        
+            Console.WriteLine("Do you wish to workout the resultant moment about a point");
+            var option = ReadLine();
+            if (option == "yes")
+            {
+                Console.WriteLine("how many forces are there?");
+                var option1 = Console.ReadLine();
+                switch (option1)
+                {
+                    case "2":
+                    {
+                        break;
+                    }
+                    case "3":
+                    {
+                        break;
+                    }
+                    case "4":
+                    {
+                        break;
+                    }
+                }
+
+            }
+                
+        }
     }
 }
-
